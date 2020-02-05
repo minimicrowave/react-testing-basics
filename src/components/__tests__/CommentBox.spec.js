@@ -2,16 +2,19 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
 import CommentBox from 'components/CommentBox';
+import Root from 'Root';
 
 describe('CommentBox.js', () => {
 	let wrapped;
 
 	beforeEach(() => {
-		wrapped = mount(<CommentBox />);
+		wrapped = mount(
+			<Root>
+				<CommentBox />
+			</Root>
+		);
 	});
-	afterEach(() => {
-		wrapped.unmount();
-	});
+	afterEach(() => wrapped.unmount());
 
 	it('should return a textarea and a button', () => {
 		expect(wrapped.find('textarea')).to.have.lengthOf(1);
@@ -23,8 +26,8 @@ describe('CommentBox.js', () => {
 		beforeEach(() => {
 			wrapped.find('textarea').simulate('change', { target: { value: NEW_COMMENT } });
 			wrapped.update();
-        });
-        
+		});
+
 		it('should be able to create ', () => {
 			expect(wrapped.find('textarea').prop('value')).to.be.equal(NEW_COMMENT);
 		});
