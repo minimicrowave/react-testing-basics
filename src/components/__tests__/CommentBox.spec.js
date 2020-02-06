@@ -16,9 +16,9 @@ describe('CommentBox.js', () => {
 	});
 	afterEach(() => wrapped.unmount());
 
-	it('should return a textarea and a button', () => {
+	it('should return a textarea and 2 buttons', () => {
 		expect(wrapped.find('textarea')).to.have.lengthOf(1);
-		expect(wrapped.find('button')).to.have.lengthOf(1);
+		expect(wrapped.find('button')).to.have.lengthOf(2);
 	});
 
 	describe('Text Area', () => {
