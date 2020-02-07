@@ -9,7 +9,7 @@ describe('CommentBox.js', () => {
 
 	beforeEach(() => {
 		wrapped = mount(
-			<Root>
+			<Root initialState={{ auth: true }}>
 				<CommentBox />
 			</Root>
 		);

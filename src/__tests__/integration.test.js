@@ -1,4 +1,7 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router';
+// A <Router> that keeps the history of your "URL" in memory (does not read or write to the address bar).
+// Useful in tests and non-browser environments like React Native.
 import { mount } from 'enzyme';
 import { expect } from 'chai';
 import moxios from 'moxios';
@@ -7,12 +10,16 @@ import Root from 'Root';
 import App from 'components/App';
 
 describe('Integration Tests', () => {
+	const initialState = { auth: true };
+	const initialEntries = [ '/post' ];
 	const wrapped = mount(
-		<Root>
-			<App />
+		<Root initialState={initialState}>
+			<MemoryRouter initialEntries={initialEntries}>
+				<App />
+			</MemoryRouter>
 		</Root>
-    );
-    
+	);
+
 	beforeEach(() => {
 		moxios.install();
 		moxios.stubRequest('http://jsonplaceholder.typicode.com/comments/', {

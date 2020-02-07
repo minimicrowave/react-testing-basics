@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 export default (ChildComponent) => {
 	class ComposedComponent extends Component {
 		componentDidMount() {
-            console.log(this.props)
 			this.shouldRedirectToLogin();
 		}
 

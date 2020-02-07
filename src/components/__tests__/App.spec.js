@@ -7,18 +7,20 @@ import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
 describe('App.js', () => {
-    let wrapped;
-    
+	let wrapped;
+
 	beforeEach(() => {
 		wrapped = shallow(<App />);
 	});
 
-	it('should render a comment box', () => {
+	it.skip('should render a comment box', () => {
+		// deprecated
 		expect(wrapped.find(CommentBox)).to.have.lengthOf(1); // .find() returns Array
 		expect(wrapped.find(CommentBox)).to.not.have.lengthOf(3);
 	});
 
-	it('should render a comment list', () => {
+	it.skip('should render a comment list', () => {
+		// deprecated
 		expect(wrapped.find(CommentList)).to.have.lengthOf(1);
 	});
 });
